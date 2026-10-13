@@ -29,6 +29,17 @@ public class EnemyProjectilePlayerCollision implements CollisionHandlerInterface
         EntityType.ENEMY_PROJECTILE,
         EntityType.PLAYER,
         (projectile, player) -> {
+          if (player.isJumping()) {
+            return; // Ignore collision if player is jumping
+          }
+          AudioManager.getInstance().playSound(GameConstants.PLAYER_HIT_SOUND);
+          projectile.removeFromWorld();
+          logger.info("You got hit !\n");
+          gameActions.damagePlayer();
+        });
+        EntityType.ENEMY_PROJECTILE,
+        EntityType.PLAYER,
+        (projectile, player) -> {
           AudioManager.getInstance().playSound(GameConstants.PLAYER_HIT_SOUND);
           projectile.removeFromWorld();
           logger.info("You got hit !\n");

@@ -33,6 +33,16 @@ import javafx.util.Duration;
 
 public class PlayerComponent extends Component implements Player {
 
+  private boolean jumping = false;
+
+  public boolean isJumping() {
+    return jumping;
+  }
+
+  public void setJumping(boolean jumping) {
+    this.jumping = jumping;
+  }
+
   private static final double MAX_WEAPON_HEAT = 100.0;
   private static final double HEAT_PER_SHOT = 12.0;
   private static final double COOLING_RATE_PER_SECOND = 30.0;
