@@ -38,8 +38,8 @@ public class AudioControlsComponent {
 
       @Override
       void updateVolume(Settings settings, double volume) {
-        AudioManager.getInstance().setVolume(volume);
-        settings.setVolume(volume);
+        new Thread(() -> { AudioManager.getInstance().setVolume(volume); }).start();
+        new Thread(() -> { settings.setVolume(volume); }).start();
       }
     },
     SFX {
