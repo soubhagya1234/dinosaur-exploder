@@ -31,6 +31,7 @@ public class PlayerRedDinoCollision implements CollisionHandlerInterface {
         (player, redDino) -> {
           AudioManager.getInstance().playSound(GameConstants.PLAYER_HIT_SOUND);
           logger.info("You touched a red dino !");
+          gameActions.updatePlayerState();
           gameActions.damagePlayer();
         });
   }
