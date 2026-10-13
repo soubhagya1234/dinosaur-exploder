@@ -30,7 +30,8 @@ public class PlayerOrangeDinoCollision implements CollisionHandlerInterface {
         EntityType.ORANGE_DINO,
         (player, orangeDino) -> {
           AudioManager.getInstance().playSound(GameConstants.PLAYER_HIT_SOUND);
-          logger.info("You touched a orange dino !");
+          logger.info("You touched an orange dino !");
+          gameActions.updatePlayerState();
           gameActions.damagePlayer();
         });
   }
